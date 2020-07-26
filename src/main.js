@@ -12,6 +12,8 @@ import QS from 'qs';
 import api from '@/request/api'
 import 'element-ui/lib/theme-chalk/index.css';
 import '../src/assets/style/main.css'
+import '@/utils/global'//全局
+
 Vue.config.productionTip = false
 Vue.use(ElementUI);
 Vue.use(VueAxios, axios)

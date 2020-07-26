@@ -1,27 +1,33 @@
 <template>
 	<el-container class="home">
-		<el-header>header</el-header>
+		<el-aside class="_vh100">
+			<AsideIndex></AsideIndex>
+		</el-aside>
 		<el-container>
-			<el-aside>
-				<Aside></Aside>
-			</el-aside>
+			<el-header>
+				<Header></Header>
+			</el-header>
 			<el-main>
 				<Main></Main>
 			</el-main>
-		
+			<el-footer>
+				<Footers></Footers>
+			</el-footer>
 		</el-container>
 	</el-container>
 </template>
 
 <script>
-import Aside from "@/components/Aside/Aside";
-import Main from "@/components/Main/Main";
-import Footers from "@/components/Footers/Footers";
+import Header from "./Header/Header";
+import AsideIndex from "./Aside/index";
+import Main from "./Main/Main";
+import Footers from "./Footers/Footers";
 export default {
 	components: {
-		Aside,
+		Header,
+		AsideIndex,
 		Main,
-		Footers
-	}
+		Footers,
+	},
 };
 </script>

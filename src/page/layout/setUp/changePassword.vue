@@ -1,5 +1,7 @@
 <template>
-    <div class="main">main</div>
+  <section>
+      changePassword
+  </section>
 </template>
 
 <script>
