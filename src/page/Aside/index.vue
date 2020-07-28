@@ -1,16 +1,6 @@
 <template>
-	<el-menu
-		mode="vertical"
-		unique-opened
-		:default-active="$route.path"
-		background-color="#304156"
-		text-color="#fff"
-		active-text-color="#409EFF"
-	>
-		<Sidebar :routes="routes" />
-	</el-menu>
+	<Sidebar :routes="routes" />
 </template>
-
 <script>
 import Sidebar from "../Aside/Aside";
 export default {
@@ -76,17 +66,13 @@ export default {
 					meta: {
 						isLogin: false,
 					},
+					hidden:true
 				},
 			],
 		};
 	},
 	methods: {
-		handleOpen(key, keyPath) {
-			console.log(key, keyPath);
-		},
-		handleClose(key, keyPath) {
-			console.log(key, keyPath);
-		},
+		
 	},
 };
 </script>

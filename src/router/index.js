@@ -4,71 +4,24 @@ import login from '@/page/login'
 import index from '@/page/index'
 import user from '@/page/layout/setUp/user'
 import changePassword from '@/page/layout/setUp/changePassword'
-
 import error from '@/components/error404'
-import store from '@/store/'
 
-Vue.use(Router)
+import menus from '@/router/menu-config'
+import store from '@/store/'
+console.log(menus)
 //需要后台传入数据
-let constantRouterMap =[
-	{
-		path: '/login',
-		name: 'login',
-		component: login,
-		meta: {
-			title: '登录',
-			isLogin: false
-		}
-	},
-	{
-		path: '/',
-		name: 'index',
-		component: index,
-		meta: {
-			title: '首页',
-			isLogin: true
-		}
-	},
-	{
-		path: '*',
-		name: 'error',
-		component: error,
-		meta: {
-			isLogin: false
-		}
-	},
-	{
-		path: '/layout/setUp/',
-		name: 'user',
-		component: user,
-		redirect: '/layout/setUp/user',
-		meta: {
-			title: '配置',
-			isLogin: true,
-		},
-		children: [{
-			path: 'user',
-			name: 'user',
-			component: user,
-			meta: {
-				title: '用户管理',
-				icon: 'table'
-			}
-		}, {
-			path: 'changePassword',
-			name: 'changePassword',
-			component: changePassword,
-			meta: {
-				title: '修改密码',
-				icon: 'table'
-			}
-		}]
-	},
-	
-]
+menus.forEach((item) => {
+	// item.children.forEach((children) => {
+	//   routes.push({
+	// 	path: `/${children.componentName}`,
+	// 	name: children.componentName,
+	// 	component: () => import(`@/components/${children.componentName}`)
+	//   })
+	// })
+  })
 const rounter = new Router({
 	mode: 'history',
-	routes: constantRouterMap,
+	routes: menus,
 	// 切换路由时，让页面滚动到顶部
 	scrollBehavior(to, from, savedPosition) {
 		return {
@@ -116,3 +69,5 @@ rounter.beforeEach((to, from, next) => {
 	}
 });
 export default rounter
+
+
