@@ -18,10 +18,10 @@
 </template>
 
 <script>
-import Header from "./Header/Header";
-import AsideIndex from "./Aside/index";
+import Header from "./layout/Header/Header";
+import AsideIndex from "./layout/Aside/index";
+import Footers from "./layout/Footers/Footers";
 import Main from "./Main/Main";
-import Footers from "./Footers/Footers";
 export default {
 	components: {
 		Header,

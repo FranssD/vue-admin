@@ -78,7 +78,7 @@ export default {
 							type: "success"
 						});
 						this.$store.commit("login", res.data.data);
-						this.$router.push("/");
+						this.$router.push("/index");
 					} else {
 						this.$message.error(res.data.msg);
 					}
