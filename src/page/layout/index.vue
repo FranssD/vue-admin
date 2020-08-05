@@ -18,16 +18,17 @@
 </template>
 
 <script>
-import Header from "./layout/Header/Header";
-import AsideIndex from "./layout/Aside/index";
-import Footers from "./layout/Footers/Footers";
+import Header from "./Header/Header";
+import AsideIndex from "./Aside/index";
+import Footers from "./Footers/Footers";
 import Main from "./Main/Main";
 export default {
+	name: 'layout',
 	components: {
 		Header,
 		AsideIndex,
 		Main,
-		Footers,
+		Footers
 	},
 };
 </script>

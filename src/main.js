@@ -12,7 +12,8 @@ import QS from 'qs';
 import api from '@/request/api'
 import 'element-ui/lib/theme-chalk/index.css';
 import '../src/assets/style/main.css'
-import '@/utils/global'//全局
+import '@/utils/global' // 全局
+import './promission' // 这里进行路由后台获取的模拟
 
 Vue.config.productionTip = false
 Vue.use(ElementUI);
