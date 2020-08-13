@@ -7,7 +7,7 @@
         text-color="#fff"
         active-text-color="#409EFF"
     >
-        <h5>自定义颜色</h5>
+        <h5 class="name">标题</h5>
         <Sidebar :routes="routes" />
     </el-menu>
 </template>
@@ -29,5 +29,6 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+.name{color: #fff;text-align: center;line-height: 60px}
 </style>

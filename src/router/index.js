@@ -5,6 +5,7 @@ var constantRouterMap = []
 
 export default new Router({
 	mode: 'history',
-	routes: constantRouterMap
-
+	routes: constantRouterMap,
+	// 切换路由时，让页面滚动到顶部
+	scrollBehavior: () => ({ y: 0 }),
 })

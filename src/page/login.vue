@@ -78,7 +78,7 @@ export default {
 							type: "success"
 						});
 						this.$store.commit("login", res.data.data);
-						this.$router.push("/index");
+						this.$router.push("/dashboard");
 					} else {
 						this.$message.error(res.data.msg);
 					}
@@ -90,6 +90,7 @@ export default {
 <style scoped>
 .fromBox{margin-top: 25px}
 .login{text-align: center;padding: 5vh 0 0;}
+.login img{margin: 0 auto}
 .login .btnBox {
 	margin-top: 15px;
 }
