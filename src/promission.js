@@ -33,7 +33,7 @@ let fakeRouter = {
 					component: "dashboard/index",
 					meta: {
 						title: "首页",
-						isLogin: true,
+						isLogin: true
 					}
 				}
 			]
