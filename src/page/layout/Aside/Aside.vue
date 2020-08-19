@@ -56,7 +56,7 @@ export default {
         console.log("渲染模板之前");
     },
     mounted() {
-        console.log(this.routes, "1");
+        //console.log(this.routes, "1");
     },
     methods: {
         // handleOpen(key, keyPath) {

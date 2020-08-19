@@ -6,7 +6,13 @@
 
 <script>
 export default {
-    name:'Main',
+	name:'Main',
+	mounted(){
+		console.log(window.sessionStorage.getItem('token'),'token')
+		console.log(this.$store.state.userInfo,'$store')
+		console.log(JSON.parse(sessionStorage.getItem('userInfo')))
+		
+	}
 };
 </script>
 

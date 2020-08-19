@@ -17,7 +17,7 @@ let fakeRouter = {
 			meta: {
 				title: "登录",
 				isLogin: false
-			},
+			}
 		},
 		{
 			path: "",
@@ -75,15 +75,17 @@ let fakeRouter = {
 				title: "表单",
 				isLogin: true
 			},
-			children: [{
-				path: "index",
-				name: "Form",
-				component: "form/index",
-				meta: {
-					title: "表单",
-					icon: "form"
+			children: [
+				{
+					path: "index",
+					name: "Form",
+					component: "form/index",
+					meta: {
+						title: "表单",
+						icon: "form"
+					}
 				}
-			}]
+			]
 		},
 		{
 			path: "/error404",
@@ -99,12 +101,11 @@ router.beforeEach((to, from, next) => {
 	document.title = to.meta.title
 	if (!getRouter) { // 不加这个判断，路由会陷入死循环
 		if (!getObjArr('router')) {
-			// easy-mock官网经常挂掉，所以就不请求了,你们可以替换成自己公司的接口去请求,把下方的axios请求打开即可
+
 			// axios.get('https://www.easy-mock.com/mock/5a5da330d9b48c260cb42ca8/example/antrouter').then(res => {
 			console.log('beforeEach  getRouter')
 			getRouter = fakeRouter.router // 假装模拟后台请求得到的路由数据
 			saveObjArr('router', getRouter) // 存储路由到localStorage
-
 			routerGo(to, next) // 执行路由跳转方法
 			// })
 		} else { // 从localStorage拿到了路由
@@ -115,6 +116,7 @@ router.beforeEach((to, from, next) => {
 	} else {
 		if (to.meta.isLogin) {
 			let token = window.sessionStorage.getItem('token')
+			console.log(token)
 			if (token) {
 				next()
 			} else {

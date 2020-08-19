@@ -7,19 +7,19 @@ import {
 const user = {
   getList(params) {
     // 获所有用户信息
-    return http.get(`${base.sq}/admin/auth/GetList`, {
+    return http.get(`${base.sq}/admin/user/GetList`, {
       params: params
     })
   },
   // 登录
   postLogin(params) {
-    return http.post(`${base.sq}/admin/auth/login?${stringify(params)}`, {
+    return http.post(`${base.sq}/admin/user/login?${stringify(params)}`, {
       params: params
     })
   },
   // 注册
   postAddUser(params) {
-    return http.post(`${base.sq}/admin/auth/addUser?${stringify(params)}`, {
+    return http.post(`${base.sq}/admin/user/addUser?${stringify(params)}`, {
       params: params
     })
   }

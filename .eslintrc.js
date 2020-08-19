@@ -1,6 +1,7 @@
 // https://eslint.org/docs/user-guide/configuring
 
 module.exports = {
+  lintOnSave: false,
   root: true,
   parserOptions: {
     parser: 'babel-eslint'
