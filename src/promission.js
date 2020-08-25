@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import router from './router'
-
+import axios from 'axios';
 import store from '@/store/'
 const _import = require('./router/_import_production') // 获取组件的方法
 import Layout from '@/page/layout' // Layout 是架构组件，不在后台返回，在文件里单独引入
@@ -17,12 +17,13 @@ let fakeRouter = {
 			meta: {
 				title: "登录",
 				isLogin: false
-			}
+			},
 		},
 		{
 			path: "",
 			component: "Layout",
 			redirect: "dashboard",
+			icon:'el-icon-platform-eleme',
 			meta: {
 				title: "首页",
 				isLogin: true
@@ -42,6 +43,7 @@ let fakeRouter = {
 			path: "/setUp",
 			component: "Layout",
 			redirect: '/setUp/userManagement',
+			icon:'el-icon-setting',
 			name: "setUp",
 			meta: {
 				title: "配置",
@@ -71,6 +73,7 @@ let fakeRouter = {
 		{
 			path: "/form",
 			component: "Layout",
+			icon:'el-icon-document-copy',
 			meta: {
 				title: "表单",
 				isLogin: true
@@ -102,12 +105,12 @@ router.beforeEach((to, from, next) => {
 	if (!getRouter) { // 不加这个判断，路由会陷入死循环
 		if (!getObjArr('router')) {
 
-			// axios.get('https://www.easy-mock.com/mock/5a5da330d9b48c260cb42ca8/example/antrouter').then(res => {
-			console.log('beforeEach  getRouter')
-			getRouter = fakeRouter.router // 假装模拟后台请求得到的路由数据
-			saveObjArr('router', getRouter) // 存储路由到localStorage
-			routerGo(to, next) // 执行路由跳转方法
-			// })
+			//axios.get('http://localhost:9527/admin/routes/GetList').then(res => {
+				console.log('beforeEach  getRouter')
+				getRouter = fakeRouter.router // 假装模拟后台请求得到的路由数据
+				saveObjArr('router', getRouter) // 存储路由到localStorage
+				routerGo(to, next) // 执行路由跳转方法
+			//})
 		} else { // 从localStorage拿到了路由
 			getRouter = getObjArr('router') // 拿到路由
 			console.log(getRouter, '拿到路由')
@@ -116,15 +119,12 @@ router.beforeEach((to, from, next) => {
 	} else {
 		if (to.meta.isLogin) {
 			let token = window.sessionStorage.getItem('token')
-			console.log(token)
+			//console.log(token)
 			if (token) {
 				next()
 			} else {
 				next({
 					path: '/login',
-					// query:{
-					// 	redirect:to.fullPath
-					// }
 				})
 			}
 		} else {

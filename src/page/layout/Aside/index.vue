@@ -30,4 +30,5 @@ export default {
 </script>
 <style scoped>
 .name{color: #fff;text-align: center;line-height: 60px}
+
 </style>

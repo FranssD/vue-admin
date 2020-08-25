@@ -1,6 +1,6 @@
 <template>
 	<el-container class="home">
-		<el-aside class="_vh100">
+		<el-aside class="_vh100 aside">
 			<AsideIndex></AsideIndex>
 		</el-aside>
 		<el-container>
@@ -10,9 +10,9 @@
 			<el-main>
 				<Main></Main>
 			</el-main>
-			<el-footer>
+			<!-- <el-footer>
 				<Footers></Footers>
-			</el-footer>
+			</el-footer> -->
 		</el-container>
 	</el-container>
 </template>
@@ -32,3 +32,6 @@ export default {
 	},
 };
 </script>
+<style scoped>
+.aside{width: 210px!important;}
+</style>
