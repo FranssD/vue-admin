@@ -39,57 +39,57 @@ let fakeRouter = {
 				}
 			]
 		},
-		{
-			path: "/setUp",
-			component: "Layout",
-			redirect: '/setUp/userManagement',
-			icon:'el-icon-setting',
-			name: "setUp",
-			meta: {
-				title: "配置",
-				isLogin: true
-			},
-			children: [
-				{
-					path: "userManagement",
-					name: "UserManagement",
-					component: "userManagement/index",
-					meta: {
-						title: "用户管理",
-						isLogin: true,
-					}
-				},
-				{
-					path: "changePassword",
-					name: "ChangePassword",
-					component: "changePassword/index",
-					meta: {
-						title: "修改密码",
-						isLogin: true,
-					}
-				}
-			]
-		},
-		{
-			path: "/form",
-			component: "Layout",
-			icon:'el-icon-document-copy',
-			meta: {
-				title: "表单",
-				isLogin: true
-			},
-			children: [
-				{
-					path: "index",
-					name: "Form",
-					component: "form/index",
-					meta: {
-						title: "表单",
-						icon: "form"
-					}
-				}
-			]
-		},
+		// {
+		// 	path: "/setUp",
+		// 	component: "Layout",
+		// 	redirect: '/setUp/userManagement',
+		// 	icon:'el-icon-setting',
+		// 	name: "setUp",
+		// 	meta: {
+		// 		title: "配置",
+		// 		isLogin: true
+		// 	},
+		// 	children: [
+		// 		{
+		// 			path: "userManagement",
+		// 			name: "UserManagement",
+		// 			component: "userManagement/index",
+		// 			meta: {
+		// 				title: "用户管理",
+		// 				isLogin: true,
+		// 			}
+		// 		},
+		// 		{
+		// 			path: "changePassword",
+		// 			name: "ChangePassword",
+		// 			component: "changePassword/index",
+		// 			meta: {
+		// 				title: "修改密码",
+		// 				isLogin: true,
+		// 			}
+		// 		}
+		// 	]
+		// },
+		// {
+		// 	path: "/form",
+		// 	component: "Layout",
+		// 	icon:'el-icon-document-copy',
+		// 	meta: {
+		// 		title: "表单",
+		// 		isLogin: true
+		// 	},
+		// 	children: [
+		// 		{
+		// 			path: "index",
+		// 			name: "Form",
+		// 			component: "form/index",
+		// 			meta: {
+		// 				title: "表单",
+		// 				icon: "form"
+		// 			}
+		// 		}
+		// 	]
+		// },
 		{
 			path: "/error404",
 			component: "error404",
@@ -104,7 +104,7 @@ router.beforeEach((to, from, next) => {
 	document.title = to.meta.title
 	if (!getRouter) { // 不加这个判断，路由会陷入死循环
 		if (!getObjArr('router')) {
-
+			console.log(getRouter, '初始化')
 			//axios.get('http://localhost:9527/admin/routes/GetList').then(res => {
 				console.log('beforeEach  getRouter')
 				getRouter = fakeRouter.router // 假装模拟后台请求得到的路由数据

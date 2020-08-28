@@ -6,8 +6,7 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
     state:{
-        version:'hello',
-        token:window.sessionStorage.getItem('token')
+        version:'hello'
     },
     mutations
 })

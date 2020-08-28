@@ -4,7 +4,7 @@
 			<AsideIndex></AsideIndex>
 		</el-aside>
 		<el-container>
-			<el-header>
+			<el-header class="header">
 				<Header></Header>
 			</el-header>
 			<el-main>
@@ -33,5 +33,6 @@ export default {
 };
 </script>
 <style scoped>
+.header{box-shadow: 0 1px 3px 0 rgba(0,0,0,.12), 0 0 3px 0 rgba(0,0,0,.04);height:auto!important;}
 .aside{width: 210px!important;}
 </style>

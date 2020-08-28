@@ -25,6 +25,9 @@ export default {
         routes() {
             return global.antRouter
         }
+    },
+    watch:{
+        
     }
 };
 </script>

@@ -44,45 +44,53 @@ export default {
     },
     methods: {
         addUserObj() {
-            let name = this.form.userName;
-            let pwd = this.form.pwd;
-            this.$api.user
+            const that = this;
+            let [name, pwd] = [that.form.userName, that.form.pwd];
+            that.$api.user
                 .postAddUser({
                     username: name,
                     pwd: pwd,
                 })
                 .then((res) => {
                     if (res.data.code) {
-                        this.$message({
+                        that.$message({
                             message: res.data.msg,
                             type: "success",
                         });
                     } else {
-                        this.$message.error(res.data.msg);
+                        that.$message.error(res.data.msg);
                     }
                 });
         },
         loginObj() {
-            let name = this.form.userName;
-            let pwd = this.form.pwd;
+            const that = this;
+            let [name, pwd] = [that.form.userName, that.form.pwd];
+            const paramsPostLogin = {
+                username: name,
+                pwd: pwd,
+            };
 
-            this.$api.user
-                .postLogin({
-                    username: name,
-                    pwd: pwd,
-                })
-                .then((res) => {
-                    if (res.data.code) {
-                        this.$message({
-                            message: res.data.msg,
-                            type: "success",
-                        });
-                        this.$store.commit("login", res.data.data);
-                        this.$router.push("/dashboard");
-                    } else {
-                        this.$message.error(res.data.msg);
-                    }
-                });
+            that.$api.user.postLogin(paramsPostLogin).then((res) => {
+                if (res.data.code) {
+                    that.$message({
+                        message: res.data.msg,
+                        type: "success",
+                    });
+                    that.$store.commit("login", res.data.data);
+
+                    let grade = res.data.data.userInfo.grade;
+                    const paramsGetRouter = {
+                        grade: grade,
+                    };
+                    that.$api.router
+                        .getRouter(paramsGetRouter)
+                        .then((res) => {});
+
+                    that.$router.push("/dashboard");
+                } else {
+                    that.$message.error(res.data.msg);
+                }
+            });
         },
     },
 };
