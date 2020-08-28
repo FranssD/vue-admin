@@ -1,6 +1,6 @@
 <template>
     <div class="content">
-        <template v-for="item in routes" v-if="!item.hidden&&item.children">
+        <template v-for="item in routes" v-if="!item.hidden && item.children">
             <router-link
                 v-if="item.children.length===1 && !item.children[0].children && !item.alwaysShow"
                 :to="item.path+'/'+item.children[0].path"
@@ -49,18 +49,16 @@ export default {
     },
     props: {
         routes: {
-            type: Array
+            type: Array,
         },
         isNest: {
             type: Boolean,
-            default: false
-        }
+            default: false,
+        },
     },
-    created() {
-        console.log("渲染模板之前");
-    },
+    created() {},
     mounted() {
-        //console.log(this.routes, "1");
+        console.log(this.routes, "Aside");
     },
     methods: {
         // handleOpen(key, keyPath) {
@@ -69,11 +67,15 @@ export default {
         // handleClose(key, keyPath) {
         //     console.log(key, keyPath);
         // }
-    }
+    },
 };
 </script>
 
 <style scoped>
-.child .el-menu-item{background-color: #1f2d3d!important;}
-.child:hover .el-menu-item{background-color: #001528!important;}
+.child .el-menu-item {
+    background-color: #1f2d3d !important;
+}
+.child:hover .el-menu-item {
+    background-color: #001528 !important;
+}
 </style>

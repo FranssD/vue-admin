@@ -16,22 +16,25 @@ import Sidebar from "../Aside/Aside";
 export default {
     name: "asideIndex",
     components: {
-        Sidebar
+        Sidebar,
     },
     data() {
         return {};
     },
+    mounted() {},
     computed: {
         routes() {
-            return global.antRouter
-        }
+            console.log(global.antRouter,'asideIndex')
+            return global.antRouter;
+        },
     },
-    watch:{
-        
-    }
+    watch: {},
 };
 </script>
 <style scoped>
-.name{color: #fff;text-align: center;line-height: 60px}
-
+.name {
+    color: #fff;
+    text-align: center;
+    line-height: 60px;
+}
 </style>

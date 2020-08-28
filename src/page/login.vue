@@ -82,11 +82,15 @@ export default {
                     const paramsGetRouter = {
                         grade: grade,
                     };
-                    that.$api.router
-                        .getRouter(paramsGetRouter)
-                        .then((res) => {});
-
-                    that.$router.push("/dashboard");
+                    that.$api.router.getRouter(paramsGetRouter).then((res) => {
+                        let allRouter = [
+                            ...JSON.parse(window.localStorage.getItem('router')),
+                            ...res.data.data,
+                        ];
+                        global.antRouter=allRouter
+                        localStorage.setItem('router', JSON.stringify(allRouter))
+                        that.$router.push("/dashboard");
+                    });
                 } else {
                     that.$message.error(res.data.msg);
                 }

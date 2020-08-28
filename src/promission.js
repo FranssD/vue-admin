@@ -23,7 +23,7 @@ let fakeRouter = {
 			path: "",
 			component: "Layout",
 			redirect: "dashboard",
-			icon:'el-icon-platform-eleme',
+			icon: 'el-icon-platform-eleme',
 			meta: {
 				title: "首页",
 				isLogin: true
@@ -106,10 +106,10 @@ router.beforeEach((to, from, next) => {
 		if (!getObjArr('router')) {
 			console.log(getRouter, '初始化')
 			//axios.get('http://localhost:9527/admin/routes/GetList').then(res => {
-				console.log('beforeEach  getRouter')
-				getRouter = fakeRouter.router // 假装模拟后台请求得到的路由数据
-				saveObjArr('router', getRouter) // 存储路由到localStorage
-				routerGo(to, next) // 执行路由跳转方法
+			console.log('beforeEach  getRouter')
+			getRouter = fakeRouter.router // 假装模拟后台请求得到的路由数据
+			saveObjArr('router', getRouter) // 存储路由到localStorage
+			routerGo(to, next) // 执行路由跳转方法
 			//})
 		} else { // 从localStorage拿到了路由
 			getRouter = getObjArr('router') // 拿到路由
